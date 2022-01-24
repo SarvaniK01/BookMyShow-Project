@@ -1,11 +1,16 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+
+import axios from "axios";
 
 import MovieSlides from "../components/MovieSlides/MovieSlides.component";
-import CastCrew from "../components/MovieSlides/CastCrew.component";
+import Cast from "../components/MovieSlides/CastCrew.component";
+import Crew from "../components/MovieSlides/Crew.component";
 
 // Icons
 import { BsHeartFill, BsDot } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
+
+
 
 const launchRazorPay = () => {
     let options = {
@@ -26,6 +31,29 @@ const launchRazorPay = () => {
 };
 
 const MoviePage = () => {
+
+    const [movieCast, setMovieCast] = useState([]);
+
+    useEffect(() => {
+        const requestMovieCast = async() => {
+            const getMovieCast = await axios.get("/movie/:{movie_id}/credits");
+            console.log("getMovie", getMovieCast);
+            setMovieCast(getMovieCast.data.results);
+        };
+        requestMovieCast();
+    },[]);
+
+    const [movieCrew, setMovieCrew] = useState([]);
+
+    useEffect(() => {
+        const requestMovieCrew = async() => {
+            const getMovieCrew = await axios.get("/movie/:{movie_id}/credits");
+            console.log("getMovieCrew", getMovieCrew);
+            setMovieCrew(getMovieCrew.data.results);
+        };
+        requestMovieCrew();
+    },[]);
+
     return (
         <>
             <div className="w-full h-full .container">
@@ -93,16 +121,22 @@ const MoviePage = () => {
             
             {/* CAST & CREW */}
             <div>
-                <h1 className="container mx-0 my-4">Cast</h1>
+                <hr></hr>
+            </div>
+            <div>
+                
+                <h1 className="container mx-20 my-4 font-bold text-2xl">Cast</h1>
                 <div className="mx-auto px-3 container">
-                    <CastCrew />
+                    <Cast PremierImages={movieCast}/>
                 </div>
             </div>
-
             <div>
-                <h1>Crew</h1>
+                <hr></hr>
+            </div>
+            <div>
+                <h1 className="container mx-20 my-4 font-bold text-2xl">Crew</h1>
                 <div className="mx-auto px-3 container">
-                    <CastCrew/>
+                    <Crew PremierImages={movieCrew}/>
                 </div>
             </div>
             

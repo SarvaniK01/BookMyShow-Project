@@ -4,7 +4,7 @@ import Slider from "react-slick";
 
 import Poster2 from "../Poster/Poster2.component";
 
-const Cast = () => {
+const Crew = () => {
     const settings = {
         infinity: true,
         slidesToShow: 5,
@@ -13,36 +13,36 @@ const Cast = () => {
         InitialSlide:0
     }
 
-    const CastImages = [
+    const CrewImages = [
         {
-            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/tom-holland-33741-15-12-2021-05-05-50.jpg",
+            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/jon-watts-1057903-24-03-2017-17-55-32.jpg",
             alt:"cast-crew-images",
-            title:"Tom Holland",
-            subtitle:"as Peter-Parker/Spider Man",
+            title:"Jon Watts",
+            subtitle:"Director",
         },
         {
-            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/zendaya-iein098146-03-07-2017-14-20-19.jpg",
+            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/kevin-feige-1092082-18-04-2018-14-44-54.jpg",
             alt:"cast-crew-images",
-            title:"Zendaya",
-            subtitle:"MJ",
+            title:"Kevin Feige",
+            subtitle:"Producer",
         },
         {
-            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/benedict-cumberbatch-6466-25-04-2018-02-01-01.jpg",
+            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/amy-pascal-1084057-08-11-2017-12-48-54.jpg",
             alt:"cast-crew-images",
-            title:"Benedict Cumberbatch",
-            subtitle:"Doctor Strange",
+            title:"Amy Pascal",
+            subtitle:"Producer",
         },
         {
-            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/jon-favreau-1055-24-03-2017-17-58-59.jpg",
+            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/chris-mckenna-9932-24-03-2017-15-21-09.jpg",
             alt:"cast-crew-images",
-            title:"Jon Favreau",
-            subtitle:"as Happy Hogan",
+            title:"Chris McKenna",
+            subtitle:"Writer",
         },
         {
-            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/jacob-batalon-1084051-03-07-2017-14-36-39.jpg",
+            src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/erik-sommers-1069623-18-06-2017-01-09-18.jpg",
             alt:"cast-crew-images",
-            title:"Jacob batalon",
-            subtitle:"as Ned Leeds"
+            title:"Eric Sommers",
+            subtitle:"Writer"
         },
         {
             src:"https://in.bmscdn.com/iedb/artist/images/website/poster/large/angourie-rice-38311-24-03-2017-16-05-52.jpg",
@@ -77,7 +77,7 @@ const Cast = () => {
     return(
         <>
             <Slider {...settings}>
-                {CastImages.map((image) => (
+                {CrewImages.map((image) => (
                     <Poster2 {...image}/>
                 ))} 
             </Slider>
@@ -86,7 +86,7 @@ const Cast = () => {
     );
 };
 
-export default Cast;
+export default Crew;
 
 
 
